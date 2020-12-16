@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+<meta name="keywords" content="example, JavaScript Form Validation, Sample registration form">
+<meta name="description" content="This document is an example of JavaScript Form Validation using a sample registration form. ">
+<link rel="stylesheet" type="text/css" href="regform.css">
+<script src="sample-registration-form-validation.js"></script>
+
+</head>
+<script type="text/javascript"> function formValidation()
+{
+var fname = document.registration.Firstname;
+var mname = document.registration.middlename;
+var lname = document.registration.lastname;
+var ucontact = document.registration.contactnum;
+var ucountry = document.registration.country;
+var uemail = document.registration.email;
+var uid = document.registration.username;
+var umsex = document.registration.msex;
+if(allLetter(fname))
+{
+if(allLetter1(mname))
+{
+if(allLetter2(lname))
+{	
+if(allnumeric(ucontact))
+{	
+if(ValidateEmail(uemail))
+{	
+if(userid_validation(uid,5,12))
+{
+if(passid_validation(passid,5,12))
+{
+
+} 
+}
+} 
+}
+}
+}
+}
+return false;
+}
+</script>
+
+<body>
+
+	
+<form name='registration' onSubmit="return formValidation();">
+		 <ul>
+<li><label for="firstname">First Name:</label></li>
+<li><input type="text" name="Firstname" size="12" /></li>
+<li><label for="middlename">Middle Name:</label></li>
+<li><input type="text" name="middlename" size="12" /></li>
+<li><label for="lastname">Last Name:</label></li>
+<li><input type="text" name="lastname" size="12" /></li>
+<li><label for="contactnum">Contact Number:</label></li>
+<li><input type="text" name="contactnum" size="12" /></li>	
+<li><label for="email">Email:</label></li>
+<li><input type="text" name="email" size="30" /></li>	 	
+<li><label for="username">Username:</label></li>
+<li><input type="text" name="username" size="12" /></li>
+<li><label for="passid">Password:</label></li>
+<li><input type="password" name="passid" size="12"></li>
+<br><br>
+<li><input type="submit" name="submit" value="Submit"></li>
+</ul>
+</form>
+	
+
+</body>
+
+<script type="text/javascript">function allLetter(fname)
+{ 
+var letters = /^[A-Za-z]+$/;
+if(fname.value.match(letters))
+{
+return true;
+}
+
+else
+{
+alert('First name must be filled');
+
+return false;
+}
+}</script>
+
+<script type="text/javascript">function allLetter1(mname)
+{ 
+var letters1 = /^[A-Za-z]+$/;
+if(mname.value.match(letters1))
+{
+return true;
+}
+
+else
+{
+alert('Middle name must be filled');
+
+return false;
+}
+}</script>
+<script type="text/javascript">function allLetter2(lname)
+{ 
+var letters = /^[A-Za-z]+$/;
+if(lname.value.match(letters))
+{
+return true;
+}
+
+else
+{
+alert('Last name must Filled');
+
+return false;
+}
+}
+function allnumeric(ucontact)
+{ 
+var numbers = /^[0-9]+$/;
+if(ucontact.value.match(numbers))
+{
+return true;
+}
+else
+{
+alert('Contact number must be filled');
+
+return false;
+}
+}</script>
+
+</html>
