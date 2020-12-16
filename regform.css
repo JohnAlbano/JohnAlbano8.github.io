@@ -3,9 +3,11 @@ body{
 }
 
 div{
-	margin: 15px;
+	margin: 15px; 
+
 }
 
-p{ color: #654062}
+p{ color: #654062
+ }
 
 .button1{background-color: #999b84;}
