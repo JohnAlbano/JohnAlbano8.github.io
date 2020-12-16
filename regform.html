@@ -1,169 +1,117 @@
 <!DOCTYPE html>
-<html>
 <head>
-	<meta charset="utf-8">
-	<title></title>
-<meta name="keywords" content="example, JavaScript Form Validation, Sample registration form">
-<meta name="description" content="This document is an example of JavaScript Form Validation using a sample registration form. ">
-<link rel="stylesheet" type="text/css" href="regform.css">
-<script src="sample-registration-form-validation.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="regform.css">
+    <script>
 
+ function validate(){
+
+
+
+  var fname = document.getElementById("fname").value;
+  var mname = document.getElementById("mname").value;
+  var lname = document.getElementById("lname").value;
+  
+  var phone = document.getElementById("phone").value;
+  var email = document.getElementById("email").value;
+  var user = document.getElementById("user").value;
+  var pass = document.getElementById("pass").value;
+  var cpass = document.getElementById("cpass").value;
+  
+
+
+  if(fname.length < 5){
+    alert("First name must not be empty");
+    return false;
+  }
+  if(mname.length < 5){
+    alert("Middle name must not be empty");
+    return false;
+  }
+  if(lname.length < 5){
+    alert("Last name must not be empty");
+    
+    return false;
+  }
+  
+  if(phone.length != 11){
+    alert("Please Enter correct phone number");
+    return false;
+  }
+  if(email.indexOf("@") == -1 || email.length < 5){
+    alert("Please Enter correct email");
+    return false;
+  }
+    if(user.length < 5){
+    alert("username should not be less than 5 characters");
+    return false;
+  }
+  if(pass.length < 5){
+    alert("password should not be less than 5 characters");
+    return false;
+  }
+  if(pass != cpass){
+    alert("Password should match");
+    return false;
+  }
+  
+
+  document.write("Sucessfully submitted, ");
+  return true;
+  
+}
+    </script>
 </head>
-<script type="text/javascript"> function formValidation()
-{
-var fname = document.registration.Firstname;
-var mname = document.registration.middlename;
-var lname = document.registration.lastname;
-var ucontact = document.registration.contactnum;
-var ucountry = document.registration.country;
-var uemail = document.registration.email;
-var uid = document.registration.username;
-var umsex = document.registration.msex;
-if(allLetter(fname))
-{
-if(allLetter1(mname))
-{
-if(allLetter2(lname))
-{	
-if(allnumeric(ucontact))
-{	
-if(ValidateEmail(uemail))
-{	
-if(userid_validation(uid,5,12))
-{
-if(passid_validation(passid,5,12))
-{
-
-} 
-}
-} 
-}
-}
-}
-}
-return false;
-}
-</script>
-
 <body>
 
-	
-<form name='registration' onSubmit="return formValidation();">
-		 <ul>
-<li><label for="firstname">First Name:</label></li>
-<li><input type="text" name="Firstname" size="12" /></li>
-<li><label for="middlename">Middle Name:</label></li>
-<li><input type="text" name="middlename" size="12" /></li>
-<li><label for="lastname">Last Name:</label></li>
-<li><input type="text" name="lastname" size="12" /></li>
-<li><label for="contactnum">Contact Number:</label></li>
-<li><input type="text" name="contactnum" size="12" /></li>	
-<li><label for="email">Email:</label></li>
-<li><input type="text" name="email" size="30" /></li>	 	
-<li><label for="username">Username:</label></li>
-<li><input type="text" name="username" size="12" /></li>
-<li><label for="passid">Password:</label></li>
-<li><input type="password" name="passid" size="12"></li>
-<br><br>
-<li><input type="submit" name="submit" value="Submit"></li>
-</ul>
-</form>
-	
+    
+        <h1> Please Register and click the Submit button </h1>
+    
 
+    <div class="regis">
+  <div id="error_message">
+     
+  </div>
+  <form action="" id="myform" onsubmit = "return validate();">
+
+    <div class="input_field">
+        <input type="text" placeholder="First Name" id="fname">
+    </div>
+
+    <div class="input_field">
+        <input type="text" placeholder="Middle Name" id="mname">
+    </div>
+
+    <div class="input_field">
+        <input type="text" placeholder="Last Name" id="lname">
+    </div>
+
+    <div class="input_field">
+        <input type="number" placeholder="Phone" id="phone">
+    </div>
+
+    <div class="input_field">
+        <input type="text" placeholder="Email" id="email">
+    </div>
+
+    <div class="input_field">
+        <input type="text" placeholder="Username" id="user">
+    </div>
+
+    <div class="input_field">
+        <input type="password" placeholder="Password" id="pass">
+    </div>
+
+    <div class="input_field">
+        <input type="password" placeholder="Confirm Password" id="cpass">
+    </div>
+    
+    <div class="btn">
+        <input type="submit" value = "Register">
+    </div>
+  </form>
+</div>
+    
 </body>
-
-<script type="text/javascript">function allLetter(fname)
-{ 
-var letters = /^[A-Za-z]+$/;
-if(fname.value.match(letters))
-{
-return true;
-}
-
-else
-{
-alert('First name must be filled');
-
-return false;
-}
-}</script>
-
-<script type="text/javascript">function allLetter1(mname)
-{ 
-var letters1 = /^[A-Za-z]+$/;
-if(mname.value.match(letters1))
-{
-return true;
-}
-
-else
-{
-alert('Middle name must be filled');
-
-return false;
-}
-}</script>
-<script type="text/javascript">function allLetter2(lname)
-{ 
-var letters = /^[A-Za-z]+$/;
-if(lname.value.match(letters))
-{
-return true;
-}
-
-else
-{
-alert('Last name must Filled');
-
-return false;
-}
-}
-function allnumeric(ucontact)
-{ 
-var numbers = /^[0-9]+$/;
-if(ucontact.value.match(numbers))
-{
-return true;
-}
-else
-{
-alert('Contact number must be filled');
-
-return false;
-}
-}</script>
-<script type="text/javascript">
-	function ValidateEmail(uemail)
-{
-var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-if(uemail.value.match(mailformat))
-{
-return true;
-}
-else
-{
-alert("You have entered an invalid email address!");
-
-return false;
-}
-}
-
-</script>
-<script type="text/javascript">
-function userid_validation(uid,mx,my)
-{
-var uid_len = uid.value.length;
-if (uid_len == 0 )
-{
-alert("Username should not be empty");
-if(uid_len  uid_len > my){
-alert("Username should be at least" + " "+ mx + characters);	
-}
-if(uid_len = mx || uid_len <= mx))
-}
-return true;
-}
-}
-</script>
-
-</html>
